@@ -38,7 +38,7 @@ public class CProyectos {
         return "El proyecto fue borrado correctamente";
     }
     @PutMapping ("editar/proyectos/{id}")
-        public Proyectos editExperienciaLaboral(@PathVariable Long id,
+        public Proyectos editProyectos(@PathVariable Long id,
                             @RequestParam ("tipo") String nuevoTipo,
                             @RequestParam ("sector") String nuevoSector,
                             @RequestParam ("tiempo_ejecucion") String nuevaTiempo_ejecucion){

@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Temporal;
+import jakarta.validation.constraints.NotNull;
 import java.sql.Date;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,12 +19,14 @@ public class ExperienciaLaboral {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String empresa;
     @Temporal(jakarta.persistence.TemporalType.DATE)
     private Date fecha_inicio;
     @Temporal(jakarta.persistence.TemporalType.DATE)
     private Date fecha_fin;
     @Lob
+    @NotNull
     private String trabajo;
 
     public ExperienciaLaboral() {
