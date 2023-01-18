@@ -26,7 +26,7 @@ public class Sobremi {
     @NotNull
     @Size(min=1, max=250, message="fuera de rango")
     private String descripcion;
-    @NotNull
+    
     @Size(min=1, max=50, message="fuera de rango")
     private String imagen;
     
