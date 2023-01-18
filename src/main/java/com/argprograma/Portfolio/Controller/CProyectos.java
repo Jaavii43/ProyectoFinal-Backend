@@ -48,6 +48,7 @@ public class CProyectos {
             proyectoServ.setSector(nuevoSector);
             proyectoServ.setTiempo_ejecucion(nuevaTiempo_ejecucion);
             proyectoServ.setTipo(nuevoTipo);
+            proyServ.saveProyecto(proyectoServ);
             return proyectoServ;
         }
     

@@ -52,6 +52,7 @@ public class CEducacion {
             educa.getFecha_inicio();
             educa.getFecha_fin();
             educa.getTitulo();
+            eduServ.saveEscuela(educa);
             return educa;
         }
     

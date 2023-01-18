@@ -45,6 +45,7 @@ public class CSobremi {
             sobreServ.setNombre(nuevoNombre);
             sobreServ.setPosicion(nuevaPosicion);
             sobreServ.setDescripcion(nuevadescripcion);
+            sobServ.saveSobremi(sobreServ);
             return sobreServ;
         }
     

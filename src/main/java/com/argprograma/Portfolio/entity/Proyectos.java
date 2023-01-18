@@ -30,6 +30,10 @@ public class Proyectos {
         this.sector = sector;
         this.tiempo_ejecucion = tiempo_ejecucion;
     }
+    
+    public Proyectos(){
+        
+    }
  
 
 }

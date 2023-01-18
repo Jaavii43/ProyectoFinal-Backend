@@ -11,5 +11,7 @@ public interface ISHabilidades {
     public void saveSkins(Habilidades hab);
     public void deleteSkin(Long id);
     public Habilidades findSkin(Long id);
+   
+           
     
 }
