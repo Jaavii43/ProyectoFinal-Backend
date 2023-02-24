@@ -1,7 +1,7 @@
 
 package com.argprograma.Portfolio.Security;
 
-import com.argprograma.Portfolio.Security.Service.UserDetailsImpl;
+
 import com.argprograma.Portfolio.Security.jwt.JwtEntryPoint;
 import com.argprograma.Portfolio.Security.jwt.JwtTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 
 @Configuration
 @EnableWebSecurity
@@ -44,20 +45,17 @@ public class MainSecurity {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-    @Bean
-    
-        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    @Bean    
+       public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeHttpRequests()
-                .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/auth/nuevo/**").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-        
-        
-        
+               
         return http.build();
-    }
+       }
 }
