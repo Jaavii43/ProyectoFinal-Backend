@@ -14,10 +14,19 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 public class SSobremi implements ISSobremi {
-    
+
     @Autowired
     private RSobremi rSobremi;
-    
+
+    @Override
+    public Sobremi loginSobremi(String email, String clave) {
+        List<Sobremi> lisSobremi = rSobremi.findByEmailAndClave(email, clave);
+        if (!lisSobremi.isEmpty()) {
+            return lisSobremi.get(0);
+        }
+        return null;
+    }
+
     @Override
     public List<Sobremi> getSobremi() {
         List<Sobremi> listaSobremi = rSobremi.findAll();
@@ -36,9 +45,8 @@ public class SSobremi implements ISSobremi {
 
     @Override
     public Sobremi findSobremi(Long id) {
-        Sobremi sob=rSobremi.findById(id).orElse(null);
+        Sobremi sob = rSobremi.findById(id).orElse(null);
         return sob;
     }
-    
-    
+
 }

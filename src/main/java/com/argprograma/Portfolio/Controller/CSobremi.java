@@ -24,6 +24,7 @@ public class CSobremi {
     @Autowired
     private ISSobremi sobServ;
     
+    
     @GetMapping("ver")
     public List<Sobremi>getSobremi(){
         return sobServ.getSobremi();
@@ -58,4 +59,9 @@ public class CSobremi {
             return sobreServ;
         }
     
+            //login
+    @PostMapping ("autentication/login")
+    public Sobremi loginSobremi(@RequestBody Sobremi sobre) {
+        return sobServ.loginSobremi(sobre.getEmail(), sobre.getClave());
+    }
 }
