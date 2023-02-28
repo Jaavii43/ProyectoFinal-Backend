@@ -49,7 +49,7 @@ public class CHabilidades {
     public String deleteHabilidad(@PathVariable Long id)
         {
         habServ.deleteSkin(id);
-        return "La persona fue borrada correctamente";
+        return "La habilidad fue borrada correctamente";
         }
     @PutMapping ("editar/{id}")
         public Habilidades editHabilidades(@PathVariable Long id,
