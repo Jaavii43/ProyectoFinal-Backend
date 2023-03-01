@@ -5,39 +5,49 @@ import com.argprograma.Portfolio.entity.ExperienciaLaboral;
 import java.sql.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequestMapping("trabajos")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class CExperienciaLaboral{
     
     @Autowired
     private ISExperienciaLaboral expeServ;
 
-    @GetMapping("ver/experiencialaboral")
+    @GetMapping("ver")
     public List<ExperienciaLaboral>getEmpresa(){
         return expeServ.getEmpresa();
     }
     
-    @PostMapping("new/experiencialaboral")
+    @GetMapping("traer")
+    public ExperienciaLaboral findEmpresa()
+        {
+        return expeServ.findEmpresa((long)1);
+        }
+    
+    @PostMapping("/new")
     public String agregarExperienciaLaboral(@RequestBody ExperienciaLaboral expe){
         expeServ.saveEmpresa(expe);
         return "La persona fue creada correctamente";
    }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteEmpresa(@PathVariable Long id)
     {
         expeServ.deleteEmpresa(id);
         return "La persona fue borrada correctamente";
     }
-    @PutMapping ("editar/{id}")
+    @PutMapping ("/editar/{id}")
         public ExperienciaLaboral editExperienciaLaboral(@PathVariable Long id,
                             @RequestParam ("empresa") String nuevaEmpresa,
                             @RequestParam ("fecha_inicio")Date nuevaFecha_inicio,

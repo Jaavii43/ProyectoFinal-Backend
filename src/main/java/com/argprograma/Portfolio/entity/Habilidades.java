@@ -9,8 +9,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+
 
 
 @Entity
@@ -44,8 +43,7 @@ public class Habilidades {
     public void setPorcentaje(int porcentaje) {
         this.porcentaje = porcentaje;
     }
-   
-   
+      
     public Long getId() {
         return id;
     }
