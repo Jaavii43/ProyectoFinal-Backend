@@ -15,7 +15,7 @@ public class SEducacion implements ISEducacion {
     private REducacion rEducacion;
 
     @Override
-    public List<Educacion> getEscuala() {
+    public List<Educacion> getEscuela() {
         List<Educacion> listaEscuelas = rEducacion.findAll();
         return listaEscuelas;
     }
@@ -35,5 +35,7 @@ public class SEducacion implements ISEducacion {
         Educacion esc=rEducacion.findById(id).orElse(null);
         return esc;
     }
+
+
 
 }

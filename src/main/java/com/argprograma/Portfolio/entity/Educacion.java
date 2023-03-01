@@ -21,6 +21,8 @@ public class Educacion {
     private Long id;
     @NotNull
     private String escuela;
+    @NotNull
+    private String descripcion;
     @Temporal(jakarta.persistence.TemporalType.DATE)
     private Date fecha_inicio;
     @Temporal(jakarta.persistence.TemporalType.DATE)
@@ -32,11 +34,12 @@ public class Educacion {
             
         }
         
-        public Educacion(String escuela, Date fecha_inicio, Date fecha_fin, String titulo) {
+        public Educacion(String escuela, Date fecha_inicio, Date fecha_fin, String titulo, String descripcion) {
            this.escuela = escuela;
            this.fecha_inicio = fecha_inicio;
            this.fecha_fin = fecha_fin;
            this.titulo = titulo;
+           this.descripcion = descripcion;
         }
 
 
