@@ -25,7 +25,7 @@ public class CProyectos {
     @Autowired
     private ISProyectos proyServ;
 
-    @GetMapping("ver")
+    @GetMapping("/ver")
     public List<Proyectos>getProyecto(){
         return proyServ.getProyecto();
     }
