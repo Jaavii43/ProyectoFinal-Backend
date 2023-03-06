@@ -21,10 +21,10 @@ public class ExperienciaLaboral {
     private Long id;
     @NotNull
     private String empresa;
-    @Temporal(jakarta.persistence.TemporalType.DATE)
-    private Date fecha_inicio;
-    @Temporal(jakarta.persistence.TemporalType.DATE)
-    private Date fecha_fin;
+    // @Temporal(jakarta.persistence.TemporalType.DATE) No lo pude hacer anda con date. Si sobra tiempo pruebo
+    private String fecha_inicio;
+    // @Temporal(jakarta.persistence.TemporalType.DATE) No lo pude hacer anda con date. Si sobra tiempo pruebo
+    private String fecha_fin;
     @Lob
     @NotNull
     private String trabajo;
@@ -32,7 +32,7 @@ public class ExperienciaLaboral {
     public ExperienciaLaboral() {
     }
 
-    public ExperienciaLaboral(String empresa, Date fecha_inicio, Date fecha_fin, String trabajo) {
+    public ExperienciaLaboral(String empresa, String fecha_inicio, String fecha_fin, String trabajo) {
         this.empresa = empresa;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;

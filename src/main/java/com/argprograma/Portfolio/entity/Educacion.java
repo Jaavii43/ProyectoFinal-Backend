@@ -23,10 +23,10 @@ public class Educacion {
     private String escuela;
     @NotNull
     private String descripcion;
-    @Temporal(jakarta.persistence.TemporalType.DATE)
-    private Date fecha_inicio;
-    @Temporal(jakarta.persistence.TemporalType.DATE)
-    private Date fecha_fin;
+    // @Temporal(jakarta.persistence.TemporalType.DATE)
+    private String fecha_inicio;
+    // @Temporal(jakarta.persistence.TemporalType.DATE)
+    private String fecha_fin;
     @NotNull
     private String titulo;
         
@@ -34,7 +34,7 @@ public class Educacion {
             
         }
         
-        public Educacion(String escuela, Date fecha_inicio, Date fecha_fin, String titulo, String descripcion) {
+        public Educacion(String escuela, String fecha_inicio, String fecha_fin, String titulo, String descripcion) {
            this.escuela = escuela;
            this.fecha_inicio = fecha_inicio;
            this.fecha_fin = fecha_fin;

@@ -38,20 +38,20 @@ public class CExperienciaLaboral{
     @PostMapping("/new")
     public String agregarExperienciaLaboral(@RequestBody ExperienciaLaboral expe){
         expeServ.saveEmpresa(expe);
-        return "La persona fue creada correctamente";
+        return "La experiencia laboral fue agregada";
    }
 
     @DeleteMapping("/delete/{id}")
     public String deleteEmpresa(@PathVariable Long id)
     {
         expeServ.deleteEmpresa(id);
-        return "La persona fue borrada correctamente";
+        return "La exoeriencia laboral fue borrada correctamente";
     }
     @PutMapping ("/editar/{id}")
         public ExperienciaLaboral editExperienciaLaboral(@PathVariable Long id,
                             @RequestParam ("empresa") String nuevaEmpresa,
-                            @RequestParam ("fecha_inicio")Date nuevaFecha_inicio,
-                            @RequestParam ("fecha_fin") Date nuevaFecha_fin,
+                            @RequestParam ("fecha_inicio")String nuevaFecha_inicio,
+                            @RequestParam ("fecha_fin") String nuevaFecha_fin,
                             @RequestParam ("trabajo") String nuevoTrabajo){
    
       ExperienciaLaboral ExperiServ=expeServ.findEmpresa(id);
