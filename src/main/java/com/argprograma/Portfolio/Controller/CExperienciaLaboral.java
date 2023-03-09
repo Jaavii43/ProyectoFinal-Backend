@@ -29,7 +29,7 @@ public class CExperienciaLaboral{
         return expeServ.getEmpresa();
     }
     
-    @GetMapping("traer")
+    @GetMapping("find")
     public ExperienciaLaboral findEmpresa()
         {
         return expeServ.findEmpresa((long)1);
@@ -47,7 +47,7 @@ public class CExperienciaLaboral{
         expeServ.deleteEmpresa(id);
         return "La exoeriencia laboral fue borrada correctamente";
     }
-    @PutMapping ("/editar/{id}")
+    @PutMapping ("/traer/{id}")
         public ExperienciaLaboral editExperienciaLaboral(@PathVariable Long id,
                             @RequestParam ("empresa") String nuevaEmpresa,
                             @RequestParam ("fecha_inicio")String nuevaFecha_inicio,

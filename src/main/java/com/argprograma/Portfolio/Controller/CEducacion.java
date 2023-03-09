@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("educacion")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 public class CEducacion {
 
@@ -28,8 +28,14 @@ public class CEducacion {
     public List<Educacion> getEscuela() {
         return eduServ.getEscuela();
     }
+    
+    @GetMapping("ver/{id}")
+    public Educacion getEscuela(@PathVariable Long id) {
+        return eduServ.findEscuela(id);
+    }
 
-    @GetMapping("traer")
+
+    @GetMapping("find")
     public Educacion findEducacion() {
         return eduServ.findEscuela((long) 1);
     }
@@ -46,18 +52,20 @@ public class CEducacion {
         return "La escuela fue borrada correctamente";
     }
 
-    @PutMapping("editar/{id}")
+    @PutMapping("traer/{id}")
     public Educacion editEducacion(@PathVariable Long id,
             @RequestParam("escuela") String nuevaEscuela,
-            @RequestParam("fecha_inicio") String nuevaFecha_inicio,
             @RequestParam("fecha_fin") String nuevaFecha_fin,
+            @RequestParam("fecha_inicio") String nuevaFecha_inicio,
+            @RequestParam("descripcion") String nuevadescripcion,
             @RequestParam("titulo") String nuevoTitulo) {
 
         Educacion educa = eduServ.findEscuela(id);
 
         educa.getEscuela();
-        educa.getFecha_inicio();
         educa.getFecha_fin();
+        educa.getFecha_inicio();
+        educa.getDescripcion();
         educa.getTitulo();
         eduServ.saveEscuela(educa);
         return educa;
