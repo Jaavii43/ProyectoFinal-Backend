@@ -35,6 +35,12 @@ public class SEducacion implements ISEducacion {
         Educacion esc=rEducacion.findById(id).orElse(null);
         return esc;
     }
+    
+    @Override
+    public void modificarEscuela(Educacion escu) {
+        rEducacion.save(escu);
+    }
+
 
 
 

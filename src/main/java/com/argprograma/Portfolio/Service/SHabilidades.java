@@ -36,6 +36,13 @@ public class SHabilidades implements ISHabilidades {
         Habilidades hab=rHabilidades.findById(id).orElse(null);
         return hab;
     }
+    
+    @Override
+    public void modificarHabilidad(Habilidades hab) {
+        rHabilidades.save(hab
+        );
+    }
+
 
    
     

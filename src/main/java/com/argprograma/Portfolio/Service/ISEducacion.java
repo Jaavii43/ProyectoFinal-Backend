@@ -10,5 +10,6 @@ public interface ISEducacion {
     public void saveEscuela(Educacion escu);
     public void deleteEscuela(Long id);
     public Educacion findEscuela(Long id);
+    public void modificarEscuela(Educacion escu);
     
 }

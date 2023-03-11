@@ -26,14 +26,13 @@ public class CHabilidades {
     private ISHabilidades habServ;
 
     @GetMapping("/ver")
-    public List<Habilidades>getHabilidades()
-        {
+    public List<Habilidades>getHabilidades(){
         return habServ.getSkins();
         }
-    @GetMapping("traer")
-    public Habilidades findhabilidades()
-        {
-        return habServ.findSkin((long)1);
+    
+    @GetMapping("ver/{id}")
+    public Habilidades getHabilidades(@PathVariable Long id){
+        return habServ.findSkin(id);
         }
     
     
@@ -50,17 +49,9 @@ public class CHabilidades {
         habServ.deleteSkin(id);
         return "La habilidad fue borrada correctamente";
         }
-    @PutMapping ("editar/{id}")
-        public Habilidades editHabilidades(@PathVariable Long id,
-                            @RequestParam ("area") String nuevaArea,
-                            @RequestParam ("porcentaje") int nuevoPorcentaje)
-        {
-   
-            Habilidades habil=habServ.findSkin(id);
-      
-            habil.setArea(nuevaArea);
-            habil.setPorcentaje(nuevoPorcentaje);
-            habServ.saveSkins(habil);
-            return habil;
-        }
+    @PutMapping ("editar/")
+    public String modificarHabilidad(@RequestBody Habilidades hab){
+        habServ.modificarHabilidad(hab);
+        return "Fue modificado con exito";
+    }
 }

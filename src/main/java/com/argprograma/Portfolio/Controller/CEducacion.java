@@ -2,7 +2,6 @@ package com.argprograma.Portfolio.Controller;
 
 import com.argprograma.Portfolio.Service.ISEducacion;
 import com.argprograma.Portfolio.entity.Educacion;
-import com.argprograma.Portfolio.entity.Habilidades;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("educacion")
@@ -52,23 +50,10 @@ public class CEducacion {
         return "La escuela fue borrada correctamente";
     }
 
-    @PutMapping("traer/{id}")
-    public Educacion editEducacion(@PathVariable Long id,
-            @RequestParam("escuela") String nuevaEscuela,
-            @RequestParam("fecha_fin") String nuevaFecha_fin,
-            @RequestParam("fecha_inicio") String nuevaFecha_inicio,
-            @RequestParam("descripcion") String nuevadescripcion,
-            @RequestParam("titulo") String nuevoTitulo) {
-
-        Educacion educa = eduServ.findEscuela(id);
-
-        educa.getEscuela();
-        educa.getFecha_fin();
-        educa.getFecha_inicio();
-        educa.getDescripcion();
-        educa.getTitulo();
-        eduServ.saveEscuela(educa);
-        return educa;
+    @PutMapping("editar/")
+    public String modificarEscuela(@RequestBody Educacion edu){
+        eduServ.modificarEscuela(edu);
+        return "Fue modificado con exito";
     }
 
 }

@@ -7,8 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Temporal;
 import jakarta.validation.constraints.NotNull;
 import java.sql.Date;
-
-
 import lombok.Getter;
 import lombok.Setter;
 
