@@ -11,5 +11,6 @@ public interface ISExperienciaLaboral{
     public void saveEmpresa(ExperienciaLaboral expe);
     public void deleteEmpresa(Long id);
     public ExperienciaLaboral findEmpresa(Long id);
+    public void modificarEmpresa(ExperienciaLaboral expe);
 
 }

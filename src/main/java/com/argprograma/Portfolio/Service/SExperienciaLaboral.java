@@ -33,6 +33,11 @@ public class SExperienciaLaboral implements ISExperienciaLaboral {
     public ExperienciaLaboral findEmpresa(Long id) {
         ExperienciaLaboral empre=rExperinciaLaboral.findById(id).orElse(null);
         return empre;
-    }         
+    }
+    
+    @Override
+    public void modificarEmpresa(ExperienciaLaboral expe){
+        rExperinciaLaboral.save(expe);
+   }
 
 }

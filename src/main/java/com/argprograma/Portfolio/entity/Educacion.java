@@ -28,8 +28,7 @@ public class Educacion {
     @NotNull
     private String titulo;
         
-        public Educacion(){
-            
+        public Educacion(){            
         }
         
         public Educacion(String escuela, String fecha_inicio, String fecha_fin, String titulo, String descripcion) {
@@ -38,9 +37,5 @@ public class Educacion {
            this.fecha_fin = fecha_fin;
            this.titulo = titulo;
            this.descripcion = descripcion;
-        }
-
-
- 
- 
+        } 
 }

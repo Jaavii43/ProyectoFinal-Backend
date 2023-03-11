@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("trabajos")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 public class CExperienciaLaboral{
     
@@ -25,15 +25,21 @@ public class CExperienciaLaboral{
     private ISExperienciaLaboral expeServ;
 
     @GetMapping("ver")
-    public List<ExperienciaLaboral>getEmpresa(){
+    public List<ExperienciaLaboral>getEmpresa()
+    {
         return expeServ.getEmpresa();
+    }
+    
+    @GetMapping("ver/{id}")
+    public ExperienciaLaboral getEmpresa(@PathVariable Long id){
+        return expeServ.findEmpresa(id);
     }
     
     @GetMapping("find")
     public ExperienciaLaboral findEmpresa()
-        {
+    {
         return expeServ.findEmpresa((long)1);
-        }
+    }
     
     @PostMapping("/new")
     public String agregarExperienciaLaboral(@RequestBody ExperienciaLaboral expe){
@@ -47,22 +53,11 @@ public class CExperienciaLaboral{
         expeServ.deleteEmpresa(id);
         return "La exoeriencia laboral fue borrada correctamente";
     }
-    @PutMapping ("/traer/{id}")
-        public ExperienciaLaboral editExperienciaLaboral(@PathVariable Long id,
-                            @RequestParam ("empresa") String nuevaEmpresa,
-                            @RequestParam ("fecha_inicio")String nuevaFecha_inicio,
-                            @RequestParam ("fecha_fin") String nuevaFecha_fin,
-                            @RequestParam ("trabajo") String nuevoTrabajo){
-   
-      ExperienciaLaboral ExperiServ=expeServ.findEmpresa(id);
-    
-      ExperiServ.setEmpresa(nuevaEmpresa);
-      ExperiServ.setFecha_inicio(nuevaFecha_inicio);
-      ExperiServ.setFecha_fin(nuevaFecha_fin);
-      ExperiServ.setTrabajo(nuevoTrabajo);
-      expeServ.saveEmpresa(ExperiServ);
-     //retorna la nueva persona
-      return ExperiServ;
-        }
+    @PutMapping ("editar/")
+    public String ExperienciaLaboral(@RequestBody ExperienciaLaboral expe)
+    {
+        expeServ.modificarEmpresa(expe);
+        return "Edicion exitosa";
+    }
 
 }
