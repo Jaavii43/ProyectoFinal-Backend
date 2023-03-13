@@ -13,32 +13,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RequestMapping("proyectos")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 public class CProyectos {
     
     @Autowired
     private ISProyectos proyServ;
 
-    @GetMapping("/ver")
+    @GetMapping("ver")
     public List<Proyectos>getProyecto(){
         return proyServ.getProyecto();
     }
     
-    @GetMapping("traer")
+    @GetMapping("ver/{id}")
+    public Proyectos getProyecto(@PathVariable Long id){
+        return proyServ.findProyecto(id);
+    }
+    
+    @GetMapping("find")
     public Proyectos findProyecto(){
         return proyServ.findProyecto((long)1);
     }
     
-    @PostMapping("new")
+    @PostMapping("/new")
     public String agregarProyecto(@RequestBody Proyectos proy){
         proyServ.saveProyecto(proy);
-        return "La persona fue creada correctamente";
+        return "El proyecto fue creado correctamente";
    }
 
     @DeleteMapping("delete/{id}")
@@ -47,19 +51,9 @@ public class CProyectos {
         proyServ.deleteProyecto(id);
         return "El proyecto fue borrado correctamente";
     }
-    @PutMapping ("editar/{id}")
-        public Proyectos editProyectos(@PathVariable Long id,
-                            @RequestParam ("tipo") String nuevoTipo,
-                            @RequestParam ("sector") String nuevoSector,
-                            @RequestParam ("tiempo_ejecucion") String nuevaTiempo_ejecucion){
-   
-            Proyectos proyectoServ=proyServ.findProyecto(id);
-    
-            proyectoServ.setSector(nuevoSector);
-            proyectoServ.setTiempo_ejecucion(nuevaTiempo_ejecucion);
-            proyectoServ.setTipo(nuevoTipo);
-            proyServ.saveProyecto(proyectoServ);
-            return proyectoServ;
-        }
-    
+    @PutMapping ("editar/")
+    public String Proyectos(@RequestBody Proyectos proy){
+        proyServ.modificarProyecto(proy);
+        return "Edicion exitosa";
+    }
 }

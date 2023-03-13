@@ -11,5 +11,6 @@ public interface ISProyectos {
     public void saveProyecto(Proyectos proy);
     public void deleteProyecto(Long id);
     public Proyectos findProyecto(Long id);
+    public void modificarProyecto(Proyectos proy);
     
 }

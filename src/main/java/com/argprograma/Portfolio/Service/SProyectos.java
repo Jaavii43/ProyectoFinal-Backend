@@ -36,6 +36,11 @@ private RProyectos rProyectos;
         Proyectos proy=rProyectos.findById(id).orElse(null);
         return proy;
     }
+
+    @Override
+    public void modificarProyecto(Proyectos proy) {
+        rProyectos.save(proy);
+    }
     
 
     
