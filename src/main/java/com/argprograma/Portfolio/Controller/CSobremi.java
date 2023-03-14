@@ -1,4 +1,3 @@
-
 package com.argprograma.Portfolio.Controller;
 
 import com.argprograma.Portfolio.Service.ISSobremi;
@@ -18,49 +17,47 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("sobremi")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class CSobremi {
-    
+
     @Autowired
     private ISSobremi sobServ;
-    
-    
+
     @GetMapping("ver")
-    public List<Sobremi>getSobremi(){
+    public List<Sobremi> getSobremi() {
         return sobServ.getSobremi();
     }
-    
-    @GetMapping("traer/ver")
-    public Sobremi findSobremi(){
-        return sobServ.findSobremi((long)1);
+
+    @GetMapping("ver/{id}")
+    public Sobremi getSobremi(@PathVariable Long id) {
+        return sobServ.findSobremi(id);
     }
-    
-    @PostMapping("new")
-    public String agregarSobremi(@RequestBody Sobremi sobre){
+
+    @GetMapping("find")
+    public Sobremi findSobremi() {
+        return sobServ.findSobremi((long) 1);
+    }
+
+    @PostMapping("/new")
+    public String agregarSobremi(@RequestBody Sobremi sobre) {
         sobServ.saveSobremi(sobre);
         return "Se Actualizo perfil";
-   }
+    }
 
     @DeleteMapping("delete/{id}")
-    public String deleteSobremi(@PathVariable Long id)
-    {
+    public String deleteSobremi(@PathVariable Long id) {
         sobServ.deleteSobremi(id);
         return "El perfil fue borrado";
     }
-    @PutMapping ("editar/{id}")
-        public Sobremi editSobremi(@PathVariable Long id, @RequestParam("nombre") String nuevoNombre, @RequestParam("posicion") String nuevaPosicion, @RequestParam("descripcion") String nuevadescripcion){
-   
-            Sobremi sobreServ=sobServ.findSobremi(id);
-    
-            sobreServ.setNombre(nuevoNombre);
-            sobreServ.setPosicion(nuevaPosicion);
-            sobreServ.setDescripcion(nuevadescripcion);
-            sobServ.saveSobremi(sobreServ);
-            return sobreServ;
-        }
-    
-            //login
-    @PostMapping ("autentication/login")
+
+    @PutMapping("editar/")
+    public String Sobremi(@RequestBody Sobremi sobre) {
+        sobServ.modificarSobremi(sobre);
+        return "modificacion exitosa";
+    }
+
+    //login
+    @PostMapping("autentication/login")
     public Sobremi loginSobremi(@RequestBody Sobremi sobre) {
         return sobServ.loginSobremi(sobre.getEmail(), sobre.getClave());
     }

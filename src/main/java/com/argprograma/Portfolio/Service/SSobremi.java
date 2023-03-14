@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.argprograma.Portfolio.Service;
 
 import com.argprograma.Portfolio.Repository.RSobremi;
@@ -34,8 +30,8 @@ public class SSobremi implements ISSobremi {
     }
 
     @Override
-    public void saveSobremi(Sobremi proy) {
-        rSobremi.save(proy);
+    public void saveSobremi(Sobremi sobr) {
+        rSobremi.save(sobr);
     }
 
     @Override
@@ -47,6 +43,11 @@ public class SSobremi implements ISSobremi {
     public Sobremi findSobremi(Long id) {
         Sobremi sob = rSobremi.findById(id).orElse(null);
         return sob;
+    }
+
+    @Override
+    public void modificarSobremi(Sobremi sobr) {
+        rSobremi.save(sobr);
     }
 
 }

@@ -11,4 +11,5 @@ public interface ISSobremi {
     public void saveSobremi(Sobremi sobre);
     public void deleteSobremi(Long id);
     public Sobremi findSobremi(Long id);
+    public void modificarSobremi(Sobremi sobre);
 }
