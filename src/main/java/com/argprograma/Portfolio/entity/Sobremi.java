@@ -31,6 +31,7 @@ public class Sobremi {
     private String imagen;
     @Lob
     private String email;
+    @Size(min=6, max=20, message="fuera de rango")
     private String clave;
     
     public Sobremi(){
