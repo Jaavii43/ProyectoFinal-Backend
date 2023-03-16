@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("trabajos")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://portfoliojaviertoro.web.app/")
 @RestController
 public class CExperienciaLaboral{
     
