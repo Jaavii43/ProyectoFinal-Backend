@@ -4,35 +4,30 @@
 
 La idea general del proyecto es poder crear un Porfolio, que se pueda editar cualquier dato del mismo.
 Este es un proyecto integrador que incluye tanto la parte de Frontend como la de Backend para el curso de Argentina Programa, Programador Web FullStack.
-Se desarrollo una web principal de libre acceso y una web de edicion, estilo dashboard al la cual hay que acceder mediante un login definidos en la base de datos, y en el cual se puede realizar CRUD (Create-Read-Update-Delete).
+Se desarrollo el BackEnd del proyecto pensando en una arquitectura web distribuida.
+
+![arquitectura](https://user-images.githubusercontent.com/109696723/227017364-6a24a02f-4107-453f-bcfb-04f7c1ebc532.png)
+
+
 
 ## Tecnologias utilizadas
 
-Se listan los lenguajes utilizados en el ***frontend***:
-* [Visual Studio Code](https://code.visualstudio.com/): Version 1.76.2
-* [HTML5](https://developer.mozilla.org/es/docs/Web/HTML)
-* [CSS3](https://developer.mozilla.org/es/docs/Web/CSS)
-* [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/): Version 5.2.0
-* [TypeScript](https://www.typescriptlang.org/)
-* [Angular](https://angular.io/): Version 15.1.4
-* [Firebase](https://firebase.google.com/)
+Se listan los lenguajes utilizados en el ***backend***:
+* [Java](https://www.oracle.com/java/technologies/javase/jdk19-archive-downloads.html), Versión 19
+* [Netbeans](https://netbeans.apache.org/download/nb15/), Versión 16
+* [XAMPP](https://www.apachefriends.org/es/index.html)
+* [Postman] (https://www.postman.com/)
 
 ## Desarrollo
 
-Primero se instala VisualStudio Code siguiendo los pasos de los videos del curso, se instalan tambien las extensiones recomendadas, siendo la de angular Schematic la mas utilizada para crea los componentes.
-Primeramente se realiza el maquetado HTML puro ya pensando en secciones para despues poder pasar a Angular.
-Se crea un estructura de carpetas pensando en componentes, tambien separando la parte de edicion y visualisacion.
-Se hacen pruebas con ```$ ng serve``` y con la parte de backend junto con una base de datos local.
+Primero se instala Java y netbeans siguiendo los pasos de los videos del curso.
+Se crean las carpetas necesarias, controller, entity, etc. Una vez terminado se hace pruebas con postman y XMAPP para ver si funciona el backend. 
+Sabiendo que estaba ok se hace la union con el frontend local.
 
 ## Deploy
 
-Se realiza el deploy en Firebase segun videos e instructivos tanto como del curso y dela web.
-Para hacer el deploy se instala las tools de Firebase en VisualStudio Code. Despues se hace el sicronizmo entre VisualStudio y Firebase.
-Despues se utilizan los comandos:
-```$ ng build```
-
-```$ firebase deploy```
-Para podes seguir modificando el FrontEnd y actualizando los cambios en FireBase.
+Se realiza el deploy en render. Para hacer los mismo se crean archivos complementarias (DockerFile) se modifica .gitignore para que suba los archivos de la carpeta target.
+Despues de bastante renegar se logro que el deoply se complete, antes se modificaron las rutas a la base de datos subida en clever y del front subido en Firebase.
 
 ## Agradecimientos
 
