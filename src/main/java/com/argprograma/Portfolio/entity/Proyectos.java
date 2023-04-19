@@ -24,11 +24,14 @@ public class Proyectos {
  private String sector;
  @NotNull
  private String tiempo_ejecucion;
+  @NotNull
+ private Boolean valor;
 
-    public Proyectos(String tipo, String sector, String tiempo_ejecucion) {
+    public Proyectos(String tipo, String sector, String tiempo_ejecucion, Boolean valor) {
         this.tipo = tipo;
         this.sector = sector;
         this.tiempo_ejecucion = tiempo_ejecucion;
+        this.valor = valor;
     }
     
     public Proyectos(){
